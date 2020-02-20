@@ -1,0 +1,22 @@
+--- plugin.py	2020-02-16 13:39:16.000000000 +0800
++++ plugin_new.py	2020-02-20 20:41:55.902574678 +0800
+@@ -102,7 +102,19 @@
+         with self._app.create_action('Scaning plugins'):
+             self._scan_dirs()
+             self._scan_entry_points()
++            if os.sys.platform == 'win32':
++                self.__load_plugins()
+         self.scan_finished.emit(list(self._plugins.values()))
++        
++    def __load_plugins(self):
++        plugins_module_name = ['fuo_local', 'fuo_netease', 'fuo_xiami', 'fuo_qqmusic']
++        for module_name in plugins_module_name:
++            try:
++                module = importlib.import_module(module_name)
++            except Exception as e:
++                logger.exception('Failed to import module %s', module_name)
++            else:
++                self.load_module(module)
+ 
+     def load_module(self, module):
+         """加载插件模块并启用插件"""
