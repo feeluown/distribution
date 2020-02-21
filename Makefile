@@ -16,7 +16,7 @@ prepare:
 prepare_source: prepare
 	cd build && mkdir -p source/FeelUOwn
 ifeq ("$(wildcard ./.cache/feeluown-$(VER).tar.gz)","")
-	cd ./.cache && wget -c https://files.pythonhosted.org/packages/source/f/feeluown/feeluown-$(VER).tar.gz &&
+	cd ./.cache && wget -c https://files.pythonhosted.org/packages/source/f/feeluown/feeluown-$(VER).tar.gz
 endif
 	cd ./.cache && tar -xzvf feeluown-$(VER).tar.gz -C ../build/source/FeelUOwn
 
