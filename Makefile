@@ -28,7 +28,7 @@ win64: prepare_source
 ifeq ("$(wildcard ./.cache/mpv-1.dll)","")
 	cd ./.cache && wget -c https://github.com/feeluown/FeelUOwn/releases/download/v3.0.1/mpv-1.dll
 endif
-	cp -rvf .cache/libmpv-1.dll build/windows/
+	cp -rvf .cache/mpv-1.dll build/windows/
 	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic
 	pip install build/source/FeelUOwn/feeluown-$(VER)
 	cd build/windows && pyinstaller feeluown.spec
