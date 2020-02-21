@@ -1,6 +1,9 @@
 SHELL := /bin/bash
 VER ?= 3.3.10
 
+clean_cache:
+	rm -rvf .cache
+
 clean:
 	rm -rvf build
 	rm -rvf build/output
@@ -8,10 +11,26 @@ clean:
 prepare:
 	mkdir -vp build
 	mkdir -vp build/output
+	mkdir -vp .cache
 
 prepare_source: prepare
 	cd build && mkdir -p source/FeelUOwn
-ifeq ("$(wildcard ./build/source/feeluown-$(VER).tar.gz)","")
-	cd build/source && wget https://files.pythonhosted.org/packages/source/f/feeluown/feeluown-$(VER).tar.gz &&\
-	tar -xzvf feeluown-$(VER).tar.gz -C FeelUOwn
+ifeq ("$(wildcard ./.cache/feeluown-$(VER).tar.gz)","")
+	cd ./.cache && wget -c https://files.pythonhosted.org/packages/source/f/feeluown/feeluown-$(VER).tar.gz &&
 endif
+	cd ./.cache && tar -xzvf feeluown-$(VER).tar.gz -C ../build/source/FeelUOwn
+
+win64: prepare_source
+	cp -rvf windows build/
+	# Patch source for Windows
+	patch --verbose -i build/windows/windows.patch build/source/FeelUOwn/feeluown-$(VER)/feeluown/plugin.py
+	# Fetch libmpv 64bit for Windows
+ifeq ("$(wildcard ./.cache/mpv-1.dll)","")
+	cd ./.cache && wget -c https://github.com/feeluown/FeelUOwn/releases/download/v3.0.1/mpv-1.dll
+endif
+	cp -rvf .cache/libmpv-1.dll build/windows/
+	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic
+	pip install build/source/FeelUOwn/feeluown-$(VER)
+	cd build/windows && pyinstaller feeluown.spec
+	mkdir -vp build/output/windows
+	cp -rvf build/windows/dist/feeluown.exe build/output/windows/FeelUOwn_x64.exe
