@@ -37,8 +37,8 @@ def Entrypoint(dist, group, name, **kwargs):
 block_cipher = None
 a = Entrypoint('feeluown', 'console_scripts', 'feeluown',
                pathex=['D:\\FeelUOwn'],
-               datas=[('feeluown/themes', 'feeluown/themes'),
-                      ('icons/', 'icons/'), ('mpv-1.dll', '.')],
+               datas=[('../build/source/FeelUOwn/feeluown-*/feeluown/themes', '../build/source/FeelUOwn/feeluown-*/feeluown/themes'),
+                      ('../build/source/FeelUOwn/feeluown-*/icons/', 'icons/'), ('mpv-1.dll', '.')],
                hiddenimports=['PyQt5', 'fuo_local', 'fuo_netease',
                               'fuo_xiami', 'fuo_qqmusic'],
                cipher=block_cipher,
