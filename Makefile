@@ -32,6 +32,6 @@ endif
 	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic
 	mv build/source/FeelUOwn/feeluown-$(VER)/* build/source/FeelUOwn/
 	pip install build/source/FeelUOwn
-	cd build/windows && pyinstaller feeluown.spec
+	cd build/windows && pyinstaller feeluown.spec -i ../source/FeelUOwn/icons/feeluown.ico
 	mkdir -vp build/output/windows
 	cp -rvf build/windows/dist/feeluown.exe build/output/windows/FeelUOwn_x64.exe
