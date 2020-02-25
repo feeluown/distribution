@@ -14,7 +14,7 @@ jobs:
           python-version: 3.8
       - name: Install build prerequisite
         run: |
-          sudo choco install make patch wget
+          choco install make patch wget
       - name: Build
         run: |
           make win64
