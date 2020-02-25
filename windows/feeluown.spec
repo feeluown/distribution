@@ -58,4 +58,5 @@ exe = EXE(pyz,
           strip=False,
           upx=False,
           runtime_tmpdir=None,
-          console=False)
+          console=False,
+          icon='feeluown.ico')
