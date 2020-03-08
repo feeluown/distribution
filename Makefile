@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-VER ?= 3.3.10
+VER ?= 3.4a4
 
 clean_cache:
 	rm -rvf .cache
