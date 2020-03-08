@@ -18,6 +18,10 @@ jobs:
       - name: Build
         run: |
           make win64
+
+      - name: Test if ok
+        run: build/output/windows/FeelUOwn_x64.exe -h
+
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
