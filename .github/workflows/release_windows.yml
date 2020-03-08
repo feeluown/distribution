@@ -8,7 +8,7 @@ name: Release for Windows
 
 jobs:
   build:
-    name: Build
+    name: Release
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
