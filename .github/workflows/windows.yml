@@ -49,3 +49,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: build/output/windows/FeelUOwn_x64.exe
           asset_name: FeelUOwn_x64.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
