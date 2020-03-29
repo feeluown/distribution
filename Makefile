@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-VER ?= 3.4b2
+VER ?= 3.4
 
 clean_cache:
 	rm -rvf .cache
@@ -32,6 +32,6 @@ endif
 	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic
 	mv build/source/FeelUOwn/feeluown-$(VER)/* build/source/FeelUOwn/
 	pip install build/source/FeelUOwn
-	cd build/windows && cp -rvf ../source/FeelUOwn/icons/feeluown.ico ./ && set PYTHONOPTIMIZE=1 && pyinstaller -i feeluown.ico feeluown.spec
+	cd build/windows && cp -rvf ../source/FeelUOwn/icons/feeluown.ico ./ && set PYTHONOPTIMIZE=1 && pyinstaller -i feeluown.ico --onedir feeluown.spec
 	mkdir -vp build/output/windows
-	cp -rvf build/windows/dist/feeluown.exe build/output/windows/FeelUOwn_x64.exe
+	powershell Compress-Archive build/windows/dist/feeluown build/output/windows/feeluown-win64.zip
