@@ -34,4 +34,4 @@ endif
 	pip install build/source/FeelUOwn
 	cd build/windows && cp -rvf ../source/FeelUOwn/icons/feeluown.ico ./ && set PYTHONOPTIMIZE=1 && pyinstaller -i feeluown.ico --onedir feeluown.spec
 	mkdir -vp build/output/windows
-	powershell Compress-Archive build/windows/dist/feeluown build/output/windows/feeluown-win64.zip
+	powershell Compress-Archive build/windows/dist/feeluown build/output/windows/FeelUOwn-Win64.zip
