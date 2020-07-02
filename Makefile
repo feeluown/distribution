@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-VER ?= 3.5
+VER ?= $(shell head -n1 version)
 
 clean_cache:
 	rm -rvf .cache

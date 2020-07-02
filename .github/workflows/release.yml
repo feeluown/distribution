@@ -1,0 +1,28 @@
+name: Scheduled release job
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  run:
+    name: Update latest release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install packages
+      run: "sudo apt update && sudo apt install -y node-semver jq"
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Get current version
+      id: version
+      run: echo "::set-output version=$(head -n 1 version)"
+    - name: Get pypi latest version
+      id: newver
+      run: echo "::set-output newver=$(semver -p $(curl 'https://pypi.org/pypi/feeluown/json' | jq -r '.releases | keys[]') | tail -n 1)"
+    - name: Compare version
+      run: |
+        ver=$(semver ${{ steps.version.outputs.version }} ${{ steps.newver.outputs.newver }})
+        if [ "$ver" != "${{ steps.version.outputs.version }}" ];
+        then
+          echo "New version $ver detected."
+        fi
