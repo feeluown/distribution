@@ -31,7 +31,7 @@ jobs:
       run: |
         echo -n "${{ steps.newver.outputs.newver }}" > ./version
     - name: Update tag
-      if: ${{ steps.compare.outputs.update == "1" }}
+      if: ${{ steps.compare.outputs.update == 1 }}
       uses: EndBug/add-and-commit@v4
       with:
         author_name: FeelUOwn release job
