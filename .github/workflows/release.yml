@@ -15,10 +15,10 @@ jobs:
       uses: actions/checkout@v2
     - name: Get current version
       id: version
-      run: echo "::set-output version=$(head -n 1 version)"
+      run: echo "::set-output name=version::$(head -n 1 version)"
     - name: Get pypi latest version
       id: newver
-      run: echo "::set-output newver=$(semver -p $(curl 'https://pypi.org/pypi/feeluown/json' | jq -r '.releases | keys[]') | tail -n 1)"
+      run: echo "::set-output name=newver::$(curl 'https://pypi.org/pypi/feeluown/json' | jq -r '.info.version')"
     - name: Compare version
       run: |
         ver=$(semver ${{ steps.version.outputs.version }} ${{ steps.newver.outputs.newver }})
