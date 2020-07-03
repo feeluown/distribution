@@ -40,4 +40,4 @@ jobs:
         add: "version"
         tag: "v${{ steps.newver.outputs.newver }}"
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.DISTRIBUTION_TOKEN }}
