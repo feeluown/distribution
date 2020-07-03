@@ -20,9 +20,24 @@ jobs:
       id: newver
       run: echo "::set-output name=newver::$(curl 'https://pypi.org/pypi/feeluown/json' | jq -r '.info.version')"
     - name: Compare version
+      id: compare
       run: |
         ver=$(semver ${{ steps.version.outputs.version }} ${{ steps.newver.outputs.newver }})
         if [ "$ver" != "${{ steps.version.outputs.version }}" ];
         then
-          echo "New version $ver detected."
+          echo "::set-output name=update::1"
         fi
+    - name: Update version
+      run: |
+        echo -n "${{ steps.newver.outputs.newver }}" > ./version
+    - name: Update tag
+      if: ${{ steps.compare.outputs.update == "1" }}
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_name: FeelUOwn release job
+        author_email: release@feeluown.org
+        message: "Update to version ${{ steps.newver.outputs.newver }}"
+        add: "version"
+        tag: "v${{ steps.newver.outputs.newver }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
