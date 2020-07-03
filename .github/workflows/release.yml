@@ -2,7 +2,7 @@ name: Scheduled release job
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   run:
