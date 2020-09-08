@@ -29,7 +29,7 @@ ifeq ("$(wildcard ./.cache/mpv-1.dll)","")
 	cd ./.cache && wget -c https://github.com/feeluown/FeelUOwn/releases/download/v3.0.1/mpv-1.dll
 endif
 	cp -rvf .cache/mpv-1.dll build/windows/
-	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic fuo-kuwo
+	pip install "pyinstaller<4.0" PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic fuo-kuwo
 	mv build/source/FeelUOwn/feeluown-$(VER)/* build/source/FeelUOwn/
 	pip install build/source/FeelUOwn
 	cd build/windows && cp -rvf ../source/FeelUOwn/icons/feeluown.ico ./ && set PYTHONOPTIMIZE=1 && pyinstaller -i feeluown.ico --onedir feeluown.spec
