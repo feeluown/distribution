@@ -26,7 +26,7 @@ win64: prepare_source
 	patch --verbose -i build/windows/windows.patch build/source/FeelUOwn/feeluown-$(VER)/feeluown/plugin.py
 	# Fetch libmpv 64bit for Windows
 ifeq ("$(wildcard ./.cache/mpv-1.dll)","")
-	cd ./.cache && wget -c https://github.com/feeluown/FeelUOwn/releases/download/v3.0.1/mpv-1.dll
+	cd ./.cache && wget -c https://github.com/feeluown/FeelUOwn/releases/download/v3.6a0/mpv-1.dll
 endif
 	cp -rvf .cache/mpv-1.dll build/windows/
 	pip install "pyinstaller<4.0" PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic fuo-kuwo
