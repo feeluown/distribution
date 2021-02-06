@@ -32,6 +32,6 @@ endif
 	pip install "pyinstaller<4.0" PyQt5 fuo-local fuo-netease fuo-xiami fuo-qqmusic fuo-kuwo
 	mv build/source/FeelUOwn/feeluown-$(VER)/* build/source/FeelUOwn/
 	pip install build/source/FeelUOwn
-	cd build/windows && cp -rvf ../source/FeelUOwn/icons/feeluown.ico ./ && set PYTHONOPTIMIZE=1 && pyinstaller -i feeluown.ico --onedir feeluown.spec
+	cd build/windows && cp -rvf ../source/FeelUOwn/feeluown/icons/feeluown.ico ./ && set PYTHONOPTIMIZE=1 && pyinstaller -i feeluown.ico --onedir feeluown.spec
 	mkdir -vp build/output/windows
 	powershell Compress-Archive build/windows/dist/feeluown build/output/windows/FeelUOwn-Win64.zip
