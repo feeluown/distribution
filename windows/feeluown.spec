@@ -40,7 +40,7 @@ a = Entrypoint('feeluown', 'console_scripts', 'feeluown',
                datas=[('../source/FeelUOwn/feeluown/themes', 'feeluown/themes'),
                       ('../source/FeelUOwn/icons/', 'icons/'), ('mpv-1.dll', '.')],
                hiddenimports=['PyQt5', 'fuo_local', 'fuo_netease',
-                              'fuo_xiami', 'fuo_qqmusic'],
+                              'fuo_qqmusic'],
                cipher=block_cipher,
                noarchive=False
                )
