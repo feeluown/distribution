@@ -19,7 +19,7 @@ jobs:
           python-version: 3.8
       - name: Install build prerequisite
         run: |
-          choco install make patch wget
+          choco install make patch curl
       - name: Build
         run: |
           make win64
