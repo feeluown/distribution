@@ -28,6 +28,12 @@ def Entrypoint(dist, group, name, **kwargs):
         for package in packages:
             print("import", package, file=fh)
 
+        # pydantic dependes on dataclasses and dataclasses is a
+        # hidden import. 
+        # HELP: However, if we put dataclasses in the hiddenimports,
+        # pyinstaller raise an error that "distribution dataclasses is not found"
+        print("import dataclasses", file=fh)
+
     return Analysis(
         [script_path] + kwargs.get('scripts', []),
         **kwargs
@@ -36,7 +42,6 @@ def Entrypoint(dist, group, name, **kwargs):
 
 block_cipher = None
 a = Entrypoint('feeluown', 'console_scripts', 'feeluown',
-               pathex=['D:\\FeelUOwn'],
                datas=[('../source/FeelUOwn/feeluown/themes', 'feeluown/themes'),
                       ('../source/FeelUOwn/feeluown/icons/', 'feeluown/icons/'),
                       ('mpv-1.dll', '.')],
