@@ -14,7 +14,7 @@ prepare_source: clean
 	mkdir -p build/output
 	mkdir -p .cache
 ifeq ("$(wildcard ./.cache/feeluown-$(VER).tar.gz)","")
-	cd ./.cache && pip download "feeluown==$(VER)" -i https://pypi.douban.com/simple
+	cd ./.cache && pip download "feeluown==$(VER)"
 endif
 	tar -xzf ./.cache/feeluown-$(VER).tar.gz -C build/source/
 	mv build/source/feeluown-$(VER) build/source/FeelUOwn
