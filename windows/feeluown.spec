@@ -46,7 +46,7 @@ a = Entrypoint('feeluown', 'console_scripts', 'feeluown',
                       ('../source/FeelUOwn/feeluown/icons/', 'feeluown/icons/'),
                       ('mpv-1.dll', '.')],
                hiddenimports=['PyQt5', 'fuo_local', 'fuo_netease',
-                              'fuo_qqmusic'],
+                              'fuo_qqmusic', 'fuo_kuwo', 'fuo_dl'],
                cipher=block_cipher,
                noarchive=False
                )

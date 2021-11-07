@@ -29,7 +29,7 @@ ifeq ("$(wildcard ./.cache/mpv-1.dll)","")
 endif
 	cp -rf .cache/mpv-1.dll build/windows/
 	pip install build/source/FeelUOwn
-	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-qqmusic fuo-kuwo
+	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-qqmusic fuo-kuwo fuo-dl
 	cp -rf build/source/FeelUOwn/feeluown/icons/feeluown.ico build/windows
 	cd build/windows && set PYTHONOPTIMIZE=1 && pyinstaller --onedir feeluown.spec
 	mkdir -vp build/output/windows

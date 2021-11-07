@@ -9,7 +9,7 @@
          self.scan_finished.emit(list(self._plugins.values()))
 +        
 +    def __load_plugins(self):
-+        plugins_module_name = ['fuo_local', 'fuo_netease', 'fuo_qqmusic']
++        plugins_module_name = ['fuo_local', 'fuo_netease', 'fuo_qqmusic', 'fuo_kuwo', 'fuo_dl']
 +        for module_name in plugins_module_name:
 +            try:
 +                module = importlib.import_module(module_name)
