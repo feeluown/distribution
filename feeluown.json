@@ -1,0 +1,22 @@
+{
+  "version": "3.7.13",
+  "description": "FeelUOwn music player (with common plugins)",
+  "url": [
+    "https://github.com/feeluown/distribution/releases/download/v3.7.13/FeelUOwn-Win64.zip"
+  ],
+  "extract_to": [
+    ""
+  ],
+  "hash": [
+    "6269a5bbff30df471a92176ed0a90de1ee2775ad787697fad03216db09b6e03d"
+  ],
+  "license": "GPL3",
+  "env_add_path": ["feeluown\\"],
+  "bin": [
+    ["feeluown\\feeluown.exe", "FeelUOwn"]
+  ],
+  "shortcuts": [
+    ["feeluown\\feeluown.exe", "FeelUOwn", "", "feeluown\\feeluown\\icons\\feeluown.ico"]
+  ],
+  "homepage": "https://github.com/feeluown/FeelUOwn"
+}
