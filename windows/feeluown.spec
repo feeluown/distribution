@@ -42,8 +42,8 @@ def Entrypoint(dist, group, name, **kwargs):
 
 block_cipher = None
 a = Entrypoint('feeluown', 'console_scripts', 'feeluown',
-               datas=[('../source/FeelUOwn/feeluown/themes', 'feeluown/themes'),
-                      ('../source/FeelUOwn/feeluown/icons/', 'feeluown/icons/'),
+               datas=[('../source/FeelUOwn/feeluown/gui/assets/themes', 'feeluown/themes'),
+                      ('../source/FeelUOwn/feeluown/gui/assets/icons/', 'feeluown/icons/'),
                       ('mpv-1.dll', '.')],
                hiddenimports=['PyQt5', 'fuo_local', 'fuo_netease',
                               'fuo_qqmusic', 'fuo_kuwo', 'fuo_dl'],

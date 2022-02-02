@@ -30,7 +30,7 @@ endif
 	cp -rf .cache/mpv-1.dll build/windows/
 	pip install build/source/FeelUOwn
 	pip install pyinstaller PyQt5 fuo-local fuo-netease fuo-qqmusic fuo-kuwo fuo-dl
-	cp -rf build/source/FeelUOwn/feeluown/icons/feeluown.ico build/windows
+	cp -rf build/source/FeelUOwn/feeluown/gui/assets/icons/feeluown.ico build/windows
 	cd build/windows && set PYTHONOPTIMIZE=1 && pyinstaller --onedir feeluown.spec
 	mkdir -vp build/output/windows
 	powershell Compress-Archive build/windows/dist/feeluown build/output/windows/FeelUOwn-Win64.zip
