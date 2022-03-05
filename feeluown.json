@@ -16,7 +16,7 @@
     ["feeluown\\feeluown.exe", "FeelUOwn"]
   ],
   "shortcuts": [
-    ["feeluown\\feeluown.exe", "FeelUOwn", "", "feeluown\\feeluown\\gui\\assets\\icons\\feeluown.ico"]
+    ["feeluown\\feeluown.exe", "FeelUOwn", "", "feeluown\\feeluown\\icons\\feeluown.ico"]
   ],
   "homepage": "https://github.com/feeluown/FeelUOwn"
 }
